@@ -52,7 +52,7 @@ import db from '../db';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 export default {
     name: 'Attendees',
-    data: function () {
+    data: function() {
         return {
             hostID: this.$route.params.hostID,
             roomID: this.$route.params.roomID,
@@ -65,7 +65,11 @@ export default {
     },
     props: ['user'],
     mounted() {
-        const roomRef = db.collection('users').doc(this.hostID).collection('rooms').doc(this.roomID);
+        const roomRef = db
+            .collection('users')
+            .doc(this.hostID)
+            .collection('rooms')
+            .doc(this.roomID);
         roomRef.get().then(roomDoc => {
             if (roomDoc.exists) {
                 this.roomName = roomDoc.data().name;

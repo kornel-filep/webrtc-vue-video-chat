@@ -59,7 +59,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 export default {
     name: 'Rooms',
-    data: function () {
+    data: function() {
         return {
             roomName: null
         };
@@ -68,7 +68,7 @@ export default {
         FontAwesomeIcon
     },
     methods: {
-        handleAdd: function () {
+        handleAdd: function() {
             this.$emit('addRoom', this.roomName);
             this.roomNameInput = null;
             this.$refs.roomNameInput.focus();

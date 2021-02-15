@@ -45,7 +45,7 @@ export default {
         });
     },
     methods: {
-        logout: function () {
+        logout: function() {
             Firebase.auth()
                 .signOut()
                 .then(() => {
@@ -53,17 +53,28 @@ export default {
                     this.$router.push('login');
                 });
         },
-        addRoom: function (payload) {
-            db.collection('users').doc(this.user.uid).collection('rooms').add({
-                name: payload,
-                createdAt: Firebase.firestore.FieldValue.serverTimestamp()
-            });
+        addRoom: function(payload) {
+            db.collection('users')
+                .doc(this.user.uid)
+                .collection('rooms')
+                .add({
+                    name: payload,
+                    createdAt: Firebase.firestore.FieldValue.serverTimestamp()
+                });
         },
-        deleteRoom: function (payload) {
-            db.collection('users').doc(this.user.uid).collection('rooms').doc(payload).delete();
+        deleteRoom: function(payload) {
+            db.collection('users')
+                .doc(this.user.uid)
+                .collection('rooms')
+                .doc(payload)
+                .delete();
         },
-        checkIn: function (payload) {
-            const roomRef = db.collection('users').doc(payload.hostID).collection('rooms').doc(payload.roomID);
+        checkIn: function(payload) {
+            const roomRef = db
+                .collection('users')
+                .doc(payload.hostID)
+                .collection('rooms')
+                .doc(payload.roomID);
             roomRef.get().then(doc => {
                 if (doc.exists) {
                     roomRef

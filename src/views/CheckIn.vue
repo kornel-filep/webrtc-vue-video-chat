@@ -36,14 +36,14 @@ import Firebase from 'firebase';
 import db from '../db';
 
 export default {
-    data: function () {
+    data: function() {
         return {
             displayName: null,
             roomName: null
         };
     },
     methods: {
-        handleCheckIn: function () {
+        handleCheckIn: function() {
             this.$emit('checkIn', {
                 hostID: this.$route.params.hostID,
                 roomID: this.$route.params.roomID,
