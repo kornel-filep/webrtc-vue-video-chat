@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "webrtc-vue-video-chat"
+  }
+}
