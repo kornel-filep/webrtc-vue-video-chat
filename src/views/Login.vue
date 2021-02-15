@@ -49,7 +49,7 @@ export default {
                 .signInWithEmailAndPassword(this.email, this.password)
                 .then(
                     () => {
-                        this.$router.push('/');
+                        this.$router.push('/rooms');
                     },
                     error => {
                         this.error = error.message;

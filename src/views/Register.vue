@@ -75,7 +75,7 @@ export default {
                                     displayName: this.displayName
                                 })
                                 .then(() => {
-                                    this.$router.replace('/');
+                                    this.$router.replace('/rooms');
                                 });
                         },
                         error => {
