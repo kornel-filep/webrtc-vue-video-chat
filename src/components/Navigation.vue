@@ -1,6 +1,26 @@
 <template>
-    <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/login">Login</router-link>
+    <div>
+        <nav class="navbar navbar-expand bg-primary navbar-dark">
+            <div class="container-fluid">
+                <router-link class="navbar-brand" to="/"
+                    ><span class="h2 pr-1">Video Chat</span>
+                    <span v-if="user" class="navbar-text small">
+                        : Hi <span class="font-weight-bold text-white">{{ user.displayName }}</span></span
+                    >
+                </router-link>
+                <div class="navbar-nav ml-auto">
+                    <router-link class="nav-item nav-link" to="/login" v-if="!user">Log in</router-link>
+                    <router-link class="nav-item nav-link" to="/register" v-if="!user">Register</router-link>
+                    <button class="nav-item nav-link btn btn-link" @click="$emit('logout')" v-if="user">Log out</button>
+                </div>
+            </div>
+        </nav>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'Navigation',
+    props: ['user']
+};
+</script>
