@@ -13,8 +13,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: yarn install && yarn build
         env:
-          FIREBASE_CONFIG: '${{ secrets.FIREBASE_CONFIG }}'
-          CI: true
+          VUE_APP_FIREBASE_CONFIG: '${{ secrets.FIREBASE_CONFIG }}'
+          VUE_APP_CI: true
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
